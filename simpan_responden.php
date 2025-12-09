@@ -4,6 +4,9 @@
 $nowa=$_POST['nowa'];
 $id_instansi=$_POST['id_instansi'];
 $nama=$_POST['nama'];
+$email=$_POST['email'];
+$no_telepon=$_POST['no_telepon'];
+$umur=$_POST['umur'];
 $jkel=$_POST['jk'];
 $pekerjaan=$_POST['pekerjaan'];
 $pendidikan=$_POST['pendidikan'];
@@ -11,11 +14,11 @@ $pendidikan=$_POST['pendidikan'];
 
 
 
-if( $id_instansi=="" || $nama=="" || $jkel=="" || $pekerjaan==""|| $pendidikan=="")
+if( $id_instansi=="" || $nama=="" || $email=="" || $no_telepon=="" || $umur=="" || $jkel=="" || $pekerjaan==""|| $pendidikan=="")
 {
     echo"
         <script>
-            alert('Lengkapi semua data $id_instansi $nama $jkel $pekerjaan $pendidikan responden');
+            alert('Lengkapi semua data responden');
             history.back();
         </script>
         ";    
@@ -36,7 +39,7 @@ else
         ";
     }else
     {
-        $simpan=mysqli_query($conn,"INSERT INTO `data_responden` (`id_responden`, `no_wa`, `id_instansi`, `nama_responden`, `jkel`, `pekerjaan`, `pendidikan`, `saran`, `status_responden`, `tgl_responden`) VALUES (NULL, '$nowa', '$id_instansi', '$nama', '$jkel', '$pekerjaan', '$pendidikan', '', 'belum', current_timestamp());");
+        $simpan=mysqli_query($conn,"INSERT INTO `data_responden` (`id_responden`, `no_wa`, `id_instansi`, `nama_responden`, `email`, `no_telepon`, `umur`, `jkel`, `pekerjaan`, `pendidikan`, `saran`, `status_responden`, `tgl_responden`) VALUES (NULL, '$nowa', '$id_instansi', '$nama', '$email', '$no_telepon', '$umur', '$jkel', '$pekerjaan', '$pendidikan', '', 'belum', current_timestamp());");
         
         if($simpan)
         {

@@ -1,0 +1,100 @@
+
+    /* Custom Alert Styling */
+    .custom-alert {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(145deg, #ffffff, #f8f9fa);
+      border-radius: 15px;
+      padding: 20px 30px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      display: none;
+      min-width: 320px;
+      max-width: 450px;
+      border-left: 5px solid #dc3545;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    .custom-alert-content {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .custom-alert-icon {
+      background: rgba(220, 53, 69, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #dc3545;
+      font-size: 1.2rem;
+    }
+
+    .custom-alert-message {
+      color: #2c3e50;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+      flex: 1;
+    }
+
+    .alert-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Agar footer selalu di bawah tanpa gap putih */
+  html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+footer {
+  width: 100%;
+  position: static;
+}

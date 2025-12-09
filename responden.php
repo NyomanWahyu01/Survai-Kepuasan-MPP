@@ -17,10 +17,11 @@ if (!isset($_POST['nowa']) && !isset($_SESSION['temp_nowa'])) {
 // Ambil nowa dari POST atau session temporary
 $nowa = isset($_POST['nowa']) ? $_POST['nowa'] : $_SESSION['temp_nowa'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head>      
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,254 +29,23 @@ $nowa = isset($_POST['nowa']) ? $_POST['nowa'] : $_SESSION['temp_nowa'];
   <meta name="author" content="">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">-->
 
   <title>Survei Kepuasan Masyarakat</title>
-  <link rel="icon" href="./assetss/images/logo-pemda.ico" type="image/x-icon" />
-
+  <link rel="icon" href="./assetss/images/logo-pemda.ico" type="image/x-icon"/>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!--
-
-TemplateMo 570 Chain App Dev
-
-https://templatemo.com/tm-570-chain-app-dev
-
--->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" >
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="assetss/css/templatemo-chain-app-dev.css">
   <link rel="stylesheet" href="assetss/css/animated.css">
   <link rel="stylesheet" href="assetss/css/owl.css">
-
-  <style>
-    /* Container styling */
-    .about-us.section {
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      margin-top: 80px;
-      padding-top: 40px;
-    }
-
-    /* Form styling */
-    .form-container {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-      margin-top: 10px;
-    }
-
-    /* Heading styling */
-    .section-heading {
-      margin-top: 0 !important;
-      margin-bottom: 25px !important;
-    }
-
-    .section-heading h4 {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      color: #2c3e50;
-      font-weight: 700;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-heading h4 em {
-      color: #2196F3;
-      font-style: normal;
-    }
-
-    .section-heading h4:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 50%;
-      height: 3px;
-      background: linear-gradient(to right, #2196F3, transparent);
-    }
-
-    /* Form controls styling */
-    .form-control {
-      border: 2px solid #e9ecef;
-      border-radius: 12px;
-      padding: 12px 15px;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      background: #f8f9fa;
-    }
-
-    .form-control:focus {
-      border-color: #2196F3;
-      box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
-      background: white;
-    }
-
-    /* Label styling */
-    .form-group label {
-      color: #2c3e50;
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-
-    /* Select styling */
-    select.form-control {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-5-5h10l-5 5z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 15px center;
-      padding-right: 40px;
-    }
-
-    /* Button styling */
-    .btn-primary {
-      background: linear-gradient(135deg, #28a745, #218838) !important;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 35px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #218838, #1e7e34) !important;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
-    }
-
-    .btn-primary:active,
-    .btn-primary:focus {
-      background: linear-gradient(135deg, #28a745, #218838) !important;
-      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2) !important;
-    }
-
-    /* Logo styling */
-    .right-image img {
-      max-width: 100%;
-      height: auto;
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
-      transition: transform 0.3s ease;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-10px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .form-container {
-        padding: 25px;
-      }
-
-      .right-image img {
-        max-width: 80%;
-        margin: 30px auto;
-        display: block;
-      }
-    }
-
-    /* Animation */
-    .form-group {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.5s ease forwards;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .form-group:nth-child(1) {
-      animation-delay: 0.1s;
-    }
-
-    .form-group:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .form-group:nth-child(3) {
-      animation-delay: 0.3s;
-    }
-
-    .form-group:nth-child(4) {
-      animation-delay: 0.4s;
-    }
-
-    .form-group:nth-child(5) {
-      animation-delay: 0.5s;
-    }
-
-    /* Header styling */
-    .header-area {
-      background-color: white;
-      padding: 10px 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .header-area .logo {
-      display: flex;
-      align-items: center;
-      padding: 5px 0;
-    }
-
-    .header-area .logo img {
-      height: 45px;
-      width: auto;
-      transition: all 0.3s ease;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .header-area {
-        padding: 5px 0;
-      }
-
-      .header-area .logo img {
-        height: 40px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header-area .logo img {
-        height: 35px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="vendor/bootstrap/css/responden.css">
 
 </head>
 
 <body>
-
-
-
   <!-- ***** Header Area Start ***** -->
   <!-- <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s" style="background-color: white;"> -->
   <header class="header-area">
@@ -377,9 +147,6 @@ https://templatemo.com/tm-570-chain-app-dev
   </div>
 
   <!-- ***** ENDFORM PENGISIAN DATA RESPONDEN ***** -->
-
-
-
 
   <!-- Scripts -->
   <script src="vendor/jquery/jquery.min.js"></script>
