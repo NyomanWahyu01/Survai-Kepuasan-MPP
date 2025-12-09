@@ -98,3 +98,9 @@ footer {
   width: 100%;
   position: static;
 }
+
+.back-btn {
+  padding: 6px 14px;
+  font-weight: 500;
+  border-radius: 6px;
+}

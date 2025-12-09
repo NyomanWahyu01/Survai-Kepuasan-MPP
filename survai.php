@@ -36,6 +36,7 @@ https://templatemo.com/tm-570-chain-app-dev
     <link rel="stylesheet" href="assetss/css/templatemo-chain-app-dev.css">
     <link rel="stylesheet" href="assetss/css/animated.css">
     <link rel="stylesheet" href="assetss/css/owl.css">
+    <link rel="stylesheet" href="vendor/bootstrap/css/survai.css">
 
     <style>
       .survey-option {

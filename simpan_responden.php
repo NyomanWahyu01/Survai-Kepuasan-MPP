@@ -1,27 +1,33 @@
+
 <?php
-
-
 $nowa=$_POST['nowa'];
 $id_instansi=$_POST['id_instansi'];
 $nama=$_POST['nama'];
-$email=$_POST['email'];
-$no_telepon=$_POST['no_telepon'];
-$umur=$_POST['umur'];
 $jkel=$_POST['jk'];
 $pekerjaan=$_POST['pekerjaan'];
 $pendidikan=$_POST['pendidikan'];
+$saran=$_POST['saran'];
 
 
 
-
-if( $id_instansi=="" || $nama=="" || $email=="" || $no_telepon=="" || $umur=="" || $jkel=="" || $pekerjaan==""|| $pendidikan=="")
+if( $id_instansi=="" || $nama=="" || $jkel=="" || $pekerjaan==""|| $pendidikan=="")
 {
-    echo"
+    
+        echo"
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
-            alert('Lengkapi semua data responden');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Data Belum Lengkap',
+            text: 'Lengkapi semua data responden!',
+            timer: 1500,
+            showConfirmButton: false
+        }).then(() => {
             history.back();
+        });
         </script>
-        ";    
+        ";
+
 }
 else
 {
@@ -32,14 +38,23 @@ else
     if($cek>0)
     {
         echo"
-        <script>
-            alert('Silahkan Memilih Instansi Lainnya');
-            location.href='index.php';
-        </script>
-        ";
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Instansi Sudah Terisi',
+                text: 'Silahkan memilih instansi lainnya!',
+                timer: 1500,
+                showConfirmButton: false
+            }).then(() => {
+                history.back();
+            });
+            </script>
+            ";
+
     }else
     {
-        $simpan=mysqli_query($conn,"INSERT INTO `data_responden` (`id_responden`, `no_wa`, `id_instansi`, `nama_responden`, `email`, `no_telepon`, `umur`, `jkel`, `pekerjaan`, `pendidikan`, `saran`, `status_responden`, `tgl_responden`) VALUES (NULL, '$nowa', '$id_instansi', '$nama', '$email', '$no_telepon', '$umur', '$jkel', '$pekerjaan', '$pendidikan', '', 'belum', current_timestamp());");
+        $simpan=mysqli_query($conn,"INSERT INTO `data_responden` (`id_responden`, `no_wa`, `id_instansi`, `nama_responden`, `jkel`, `pekerjaan`, `pendidikan`, `saran`, `status_responden`, `tgl_responden`) VALUES (NULL, '$nowa', '$id_instansi', '$nama', '$jkel', '$pekerjaan', '$pendidikan', '$saran', 'belum', current_timestamp());");
         
         if($simpan)
         {
@@ -52,34 +67,30 @@ else
             $_SESSION['no']="0";
 
             echo"
-                <script>
-                   // alert('Berhasil menyimpan data responden');
-                    location.href='survai.php';
-                </script>
-                ";
+                <script> 
+                // alert('Berhasil menyimpan data responden'); 
+                location.href='survai.php'; 
+                </script> 
+            ";
+            
         }else
         {
             echo"
-                <script>
-                    alert('Gagal menyimpan data responden');
-                    history.back();
-                </script>
-                ";
+            <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+            <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Gagal menyimpan data responden!',
+                timer: 1500,
+                showConfirmButton: false
+            }).then(() => {
+                history.back();
+            });
+            </script>
+            ";
+
         }
-    }
-
-        
-   
-   
+    }  
 }
-
-
-
-
-
-
-
-
-
-
 ?>

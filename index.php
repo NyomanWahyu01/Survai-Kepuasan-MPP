@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 if ($_SESSION['nowa'] != '') {
-  header('Location: survey.php');
+  header('Location: survai.php');
   exit();
 }
 ?>

@@ -29,6 +29,8 @@ $nowa = isset($_POST['nowa']) ? $_POST['nowa'] : $_SESSION['temp_nowa'];
   <meta name="author" content="">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
   <title>Survei Kepuasan Masyarakat</title>
   <link rel="icon" href="./assetss/images/logo-pemda.ico" type="image/x-icon"/>
@@ -49,17 +51,18 @@ $nowa = isset($_POST['nowa']) ? $_POST['nowa'] : $_SESSION['temp_nowa'];
   <!-- ***** Header Area Start ***** -->
   <!-- <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s" style="background-color: white;"> -->
   <header class="header-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <div class="logo">
-              <img src="assetss/images/logo1.png" alt="Logo Pemda">
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
+  <div class="container"> 
+    <div class="row"> 
+      <div class="col-12"> 
+        <nav class="main-nav"> 
+          <div class="logo"> 
+            <img src="assetss/images/logo1.png" alt="Logo Pemda" class="exit-button"> 
+          </div> 
+        </nav> 
+      </div> 
+    </div> 
+
+
   </header>
 
   <!-- ***** FORM PENGISIAN DATA RESPONDEN ***** -->
@@ -165,95 +168,27 @@ $nowa = isset($_POST['nowa']) ? $_POST['nowa'] : $_SESSION['temp_nowa'];
       window.history.pushState(null, '', window.location.href);
     };
 
-    // Validasi form sebelum submit
-    document.querySelector("form").addEventListener("submit", function(e) {
-      const instansi = document.getElementById("id_instansi").value;
-      const nama = document.querySelector("input[name='nama']").value;
-      const jk = document.querySelector("select[name='jk']").value;
-      const pekerjaan = document.querySelector("select[name='pekerjaan']").value;
-      const pendidikan = document.querySelector("select[name='pendidikan']").value;
-
-      if (!instansi || !nama || !jk || !pekerjaan || !pendidikan) {
-        e.preventDefault();
-
-        // Tampilkan custom alert
-        const alertBox = document.createElement("div");
-        alertBox.className = "custom-alert";
-        alertBox.innerHTML = `
-        <div class="custom-alert-content">
-          <div class="custom-alert-icon">
-            <i class="fas fa-exclamation-circle"></i>
-          </div>
-          <p class="custom-alert-message">Harap Lengkapi Semua Data Terlebih Dahulu</p>
-        </div>
-      `;
-
-        document.body.appendChild(alertBox);
-
-        // Hilangkan alert setelah 2 detik
-        setTimeout(() => {
-          alertBox.remove();
-        }, 2000);
+    </script>
+    <script>
+      function validateForm() {
+        const nowa = document.forms["myForm"]["nowa"].value;
+        const id_instansi = document.forms["myForm"]["id_instansi"].value;
+        const nama = document.forms["myForm"]["nama"].value;
+        const jkel = document.forms["myForm"]["jk"].value;
+        const pekerjaan = document.forms["myForm"]["pekerjaan"].value;
+        const pendidikan = document.forms["myForm"]["pendidikan"].value;
       }
-    });
-  </script>
-
-  <!-- Tambahkan style untuk custom alert -->
-  <style>
-    .custom-alert {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: linear-gradient(145deg, #ffffff, #f8f9fa);
-      border-radius: 15px;
-      padding: 20px 30px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-      z-index: 9999;
-      min-width: 320px;
-      max-width: 450px;
-      border-left: 5px solid #dc3545;
-      animation: slideIn 0.3s ease-out;
-    }
-
-    .custom-alert-content {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .custom-alert-icon {
-      background: rgba(220, 53, 69, 0.1);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #dc3545;
-      font-size: 1.2rem;
-    }
-
-    .custom-alert-message {
-      color: #2c3e50;
-      font-size: 1rem;
-      font-weight: 500;
-      margin: 0;
-      flex: 1;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translate(-50%, -60%);
-        opacity: 0;
+    </script>
+    <script>
+      function validateForm() {
+        const nowa = document.forms["myForm"]["nowa"].value;
+        const id_instansi = document.forms["myForm"]["id_instansi"].value;
+        const nama = document.forms["myForm"]["nama"].value;
+        const jkel = document.forms["myForm"]["jk"].value;
+        const pekerjaan = document.forms["myForm"]["pekerjaan"].value;
+        const pendidikan = document.forms["myForm"]["pendidikan"].value;
       }
-
-      to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-      }
-    }
-  </style>
+    </script>
 </body>
 
 </html>
